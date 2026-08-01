@@ -35,7 +35,7 @@ Adds a **More Like This** section to movie and series detail pages. Suggestions 
 
 ## Installation
 
-#### 1. Create a TMDB API key at <https://www.themoviedb.org/settings/api>
+#### 1. Create an account and a free TMDB API key at <https://www.themoviedb.org/settings/api>
 
 #### 2. Install the [**Jellyfin JavaScript Injector plugin**](https://github.com/n00bcodr/Jellyfin-JavaScript-Injector) in your Jellyfin server if it is not already installed (may need server reboot)
 
