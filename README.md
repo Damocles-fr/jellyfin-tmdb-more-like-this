@@ -8,7 +8,9 @@ Adds a **More Like This** section to movie and series detail pages. Suggestions 
 - Movies in a TMDB collection (saga) are placed first : next film, then previous film (configurable)
 - Drop-down menu, collapsed by default, nothing runs (no API call, no library scan) until the section is expanded
 - Runs per user with that user's library access rights
-- Renders Jellyfin-native card posters, compatible with HoverDetails script distributed through JellyFrame plugin
+- Custom themes & backgrounds compatibility
+- Renders Jellyfin-native card posters, compatible with HoverDetails from JellyFrame plugin
+- Compatibility to use with my [**Jellyfin Episodes Ratings Grid**](https://github.com/Damocles-fr/jellyfin-imdb-episodes-heatmap-ratings-grid)
 
 ## Screenshots
 
