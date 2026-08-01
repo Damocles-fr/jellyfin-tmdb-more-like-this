@@ -25,16 +25,15 @@ Adds a **More Like This** section to movie and series detail pages. Suggestions 
 
 ## Screenshots
 
-
 <p align="center">
   <img src="./assets/jellyfin-more-like-this.webp" alt="Android view" width="900"><br>
 </p>
 
 ## Installation
 
-#### 1. Create a TMDB API key at <https://www.themoviedb.org/settings/api>. Both formats work: the short v3 "API Key" or the long v4 "API Read Access Token" (starts with `eyJ`). The script detects which one you pasted.
+#### 1. Create a TMDB API key at <https://www.themoviedb.org/settings/api>
 
-#### 2. Install the *Jellyfin JavaScript Injector* plugin in your Jellyfin server if it is not already installed (may need server reboot).
+#### 2. Install the *Jellyfin JavaScript Injector* plugin in your Jellyfin server if it is not already installed (may need server reboot)
 
 #### 3. Open the Jellyfin admin ***dashboard***
 
@@ -42,7 +41,7 @@ Adds a **More Like This** section to movie and series detail pages. Suggestions 
 
 #### 5. ***Add Script*** => Name it *jellyfin-tmdb-reco* or whatever
 
-#### 6.  Copy/Paste the full content of `jellyfin-more-like-this.js`.
+#### 6.  Copy/Paste the full content of `jellyfin-more-like-this.js`
 
 #### 7. At the top of the script, in the clearly marked `CONFIGURATION` block, replace PASTE_YOUR_TMDB_API_KEY_HERE with your key, example :
 
@@ -62,7 +61,7 @@ All options sit in the `SETTINGS` object at the top of the script.
 
 | Option | Default | Description |
 | --- | --- | --- |
-| `maxResults` | `20` | 1-40. Maximum number of cards displayed (items available in your library) |
+| `maxResults` | `20` | 1-40. Maximum number of cards displayed (if available in your library) |
 | `maxTmdbPages` | `3` | 1-5. Maximum TMDB recommendation pages fetched when fewer matches are found |
 | `collectionsFirst` | `true` | Movies only. Place available films from the same TMDB collection (saga) at the head of the row |
 | `collectionMax` | `2` | 1-20. Maximum collection films placed first. Order spirals outward from the current movie: next, previous, next+1, previous-1 |
@@ -85,7 +84,7 @@ Reference numbers measured on Jellyfin 10.11.11 (NAS over LAN, 3000 movies and 5
 
 - It won't display on Jellyfin apps that do not use the Jellyfin Web UI
 - Library items without a TMDB ID in their metadata cannot appear as suggestions (they are invisible to the ID matching)
-- Items added to the library today appear after the background revalidation detects a count change, after the 24 h cache expiry, or after pressing Refresh in the panel (see Configuration).
+- Items added to the library today appear after the background revalidation detects a count change, after the 24 h cache expiry, or after pressing Refresh in the panel (see Configuration to display it).
 
 ## Need Help?
 - Don't hesitate to open an [issue](https://github.com/Damocles-fr/jellyfin-more-like-this/issues)
