@@ -23,6 +23,13 @@ Adds a **More Like This** section to movie and series detail pages. Suggestions 
 - Heavily LLM-assisted
 - Human involvement was required to optimize the process, despite JavaScript repeatedly trying to hurt the human.
 
+## Screenshots
+
+
+<p align="center">
+  <img src="./assets/jellyfin-more-like-this.webp" alt="Android view" width="900"><br>
+</p>
+
 ## Installation
 
 #### 1. Create a TMDB API key at <https://www.themoviedb.org/settings/api>. Both formats work: the short v3 "API Key" or the long v4 "API Read Access Token" (starts with `eyJ`). The script detects which one you pasted.
