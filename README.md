@@ -9,11 +9,8 @@ Adds a **More Like This** section to movie and series detail pages. Suggestions 
 - Drop-down menu, collapsed by default, nothing runs (no API call, no library scan) until the section is expanded
 - Runs per user with that user's library access rights
 - Custom themes & backgrounds compatibility
-- Renders Jellyfin-native card posters, compatible with HoverDetails from JellyFrame plugin
-- Compatibility to use with my [**Jellyfin Episodes Ratings Grid**](https://github.com/Damocles-fr/jellyfin-imdb-episodes-heatmap-ratings-grid)
-
-## Screenshots
-
+- Renders Jellyfin-native card posters, compatible with other scripts and plugins like HoverDetails from JellyFrame plugin
+- Compatibility to use with my [**Jellyfin Episodes Ratings Grid script**](https://github.com/Damocles-fr/jellyfin-imdb-episodes-heatmap-ratings-grid)
 
 ## Requirements
 
