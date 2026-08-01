@@ -4,13 +4,17 @@ Adds a **More Like This** section to movie and series detail pages. Suggestions 
 
 ## Features
 
-- Merges TMDB `recommendations`, `similar` and `collection`
+- Merges TMDB recommendations, similar, and same-collection (sagas)
 - Movies in a TMDB collection (saga) are placed first : next film, then previous film (configurable)
-- Drop-down menu, collapsed by default, nothing runs (no API call, no library scan) until the section is expanded
+- Dropdown menu, collapsed by default, nothing runs (no API call, no library scan) until the section is expanded
+- The row is inserted right below Cast & Crew (below the Scenes row when chapter images are shown)
 - Runs per user with that user's library access rights
-- Custom themes & backgrounds compatibility
-- Renders Jellyfin-native card posters, compatible with other scripts and plugins like HoverDetails from JellyFrame plugin
-- Compatibility to use with my [**Jellyfin Episodes Ratings Grid script**](https://github.com/Damocles-fr/jellyfin-imdb-episodes-heatmap-ratings-grid)
+- Compatible with custom themes, uses Jellyfin's native poster layout
+- Compatible with other scripts and plugins, such as Kefintweaks and JellyFrame
+- Compatibility to use with my Jellyfin Episodes Ratings Grid script
+- Option to hide Jellyfin's own built-in "More Like This" row, hidden by default
+- Fully configurable (saga behavior, number of results, cache lifetimes, UI language, etc.)
+
 
 ## Requirements
 
@@ -66,6 +70,7 @@ All options sit in the `SETTINGS` object at the top of the script.
 | `collectionsFirst` | `true` | Movies only. Place available films from the same TMDB collection (saga) at the head of the row |
 | `collectionMax` | `2` | 1-20. Maximum collection films placed first. Order spirals outward from the current movie: next, previous, next+1, previous-1 |
 | `showRefresh` | `false` | Show a refresh icon in the open panel to clear caches and reload |
+| `hideNativeSimilar` | `true` | Hide Jellyfin's own built-in "More Like This" row (#similarCollapsible) at the page bottom |
 | `indexTtlHours` | `24` | 1-168. Lifetime of the local library index (localStorage) |
 | `tmdbCacheHours` | `24` | 1-168. Lifetime of cached TMDB responses (sessionStorage) |
 | `pageSize` | `1500` | 200-5000. Items per request while building the library index |
