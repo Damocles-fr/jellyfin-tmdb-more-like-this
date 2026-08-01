@@ -43,7 +43,7 @@ Adds a **More Like This** section to movie and series detail pages. Suggestions 
 
 #### 6.  Copy/Paste the full content of [`jellyfin-tmdb-more-like-this.js`](https://github.com/Damocles-fr/jellyfin-tmdb-more-like-this/releases/download/0.9/jellyfin-tmdb-more-like-this.js)
 
-#### 7. At the top of the script, in the clearly marked `CONFIGURATION` block, replace PASTE_YOUR_TMDB_API_KEY_HERE with your key, example :
+#### 7. At the top of the script, in the `CONFIGURATION` block, replace PASTE_YOUR_TMDB_API_KEY_HERE with your key, example :
 
    ```js
    const TMDB_API_KEY = '123xx123xxx123x133xyz'
