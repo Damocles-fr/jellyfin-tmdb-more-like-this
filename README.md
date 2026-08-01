@@ -79,7 +79,7 @@ The script is idle until the section is expanded. On activation it reads the cur
 
 ## Performance
 
-Reference numbers measured on Jellyfin 10.11.11 (NAS over LAN, 3000 movies and 500 series): first index build takes about 1.2 s for movies and 0.25 s for series, both shown behind a loading state. Every later activation costs one TMDB request plus one batched Jellyfin request, around 200-300 ms in total (movies in a collection add one more cached request the first time). Zero background activity while the section is collapsed.
+Reference numbers measured on Jellyfin 10.11.11 (NAS over LAN, 3000 movies and 500 series) : first index build takes about 1.2s for movies and 0.25s for series.
 
 ## Limitations
 
