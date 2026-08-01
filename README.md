@@ -1,4 +1,4 @@
-# Jellyfin More Like This 🎬🔗📚
+# Jellyfin TMDB More Like This 🎬🔗📚
 
 Adds a **More Like This** section to movie and series detail pages. Suggestions come from TMDB (merge `recommendations`, `similar`, and `collections`) and are filtered so that **only titles already present in your Jellyfin library** are shown.
 
