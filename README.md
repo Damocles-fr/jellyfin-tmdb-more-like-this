@@ -1,14 +1,13 @@
 # Jellyfin More Like This 🎬🔗📚
 
-Adds a **More Like This** section to movie and series detail pages. Suggestions come from TMDB (`recommendations`, `similar`, and `collections`) and are filtered so that **only titles already present in your Jellyfin library** are shown.
+Adds a **More Like This** section to movie and series detail pages. Suggestions come from TMDB (merge `recommendations`, `similar`, and `collections`) and are filtered so that **only titles already present in your Jellyfin library** are shown.
 
 ## Features
 
-- Merges TMDB `recommendations` and `similar`
-- For movies in a TMDB collection (saga), films from that collection present in your library are placed first: next film, then previous film (configurable)
+- Merges TMDB `recommendations`, `similar` and `collection`
+- Movies in a TMDB collection (saga) are placed first : next film, then previous film (configurable)
 - Drop-down menu, collapsed by default, nothing runs (no API call, no library scan) until the section is expanded
 - Runs per user with that user's library access rights
-- Injected with the [JavaScript Injector plugin](https://github.com/n00bcodr/Jellyfin-JavaScript-Injector) for Jellyfin web UI.
 - Renders Jellyfin-native card posters, compatible with HoverDetails script distributed through JellyFrame plugin
 
 ## Screenshots
@@ -39,17 +38,17 @@ Adds a **More Like This** section to movie and series detail pages. Suggestions 
 
 #### 6.  Copy/Paste the full content of `jellyfin-more-like-this.js`.
 
-#### 7. At the top of the script, in the clearly marked `CONFIGURATION` block, replace the placeholder with your key:
+#### 7. At the top of the script, in the clearly marked `CONFIGURATION` block, replace PASTE_YOUR_TMDB_API_KEY_HERE with your key, example :
 
    ```js
-   const TMDB_API_KEY = 'your-key-here'
+   const TMDB_API_KEY = '123xx123xxx123x133xyz'
    ```
 
 #### 8. Save and reload the web UI. Open any movie or series detail page and expand the "More Like This" bar.
 
-##### If the key is missing or left as the placeholder, the section displays an explicit message instead of failing silently.
+###### Note : if the key is missing or left as the placeholder, the section displays an explicit message instead of failing silently.
 
-##### Note: your API key lives only inside your injected script on your own server. If you share or publish a modified copy of the script, remove your key first.
+###### Note : your API key lives only inside your injected script on your own server. If you share or publish a modified copy of the script, remove your key first.
 
 ## Configuration
 
@@ -74,15 +73,15 @@ The script is idle until the section is expanded. On activation it reads the cur
 
 ## Performance
 
-Reference numbers measured on Jellyfin 10.11.11 (QNAP NAS over LAN, 2 849 movies and 496 series): first index build takes about 1.2 s for movies and 0.25 s for series, both shown behind a loading state. Every later activation costs one TMDB request plus one batched Jellyfin request, around 200-300 ms in total (movies in a collection add one more cached request the first time). Zero background activity while the section is collapsed.
+Reference numbers measured on Jellyfin 10.11.11 (NAS over LAN, 3000 movies and 500 series): first index build takes about 1.2 s for movies and 0.25 s for series, both shown behind a loading state. Every later activation costs one TMDB request plus one batched Jellyfin request, around 200-300 ms in total (movies in a collection add one more cached request the first time). Zero background activity while the section is collapsed.
 
 ## Limitations
 
+- It won't display on Jellyfin apps that do not use the Jellyfin Web UI
 - Library items without a TMDB ID in their metadata cannot appear as suggestions (they are invisible to the ID matching)
-- Items added to the library today appear after the background revalidation detects a count change, after the 24 h cache expiry, or after pressing Refresh in the panel
-- The section intentionally does not reload automatically when navigating between items expand it again on the new page
+- Items added to the library today appear after the background revalidation detects a count change, after the 24 h cache expiry, or after pressing Refresh in the panel (see Configuration).
 
 ## Need Help?
-- Don't hesitate to open an issue
+- Don't hesitate to open an [issue](https://github.com/Damocles-fr/jellyfin-more-like-this/issues)
 - **DM me** https://forum.jellyfin.org/u-damocles
 - GitHub [**Damocles-fr**](https://github.com/Damocles-fr)
