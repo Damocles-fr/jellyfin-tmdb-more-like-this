@@ -41,7 +41,7 @@ Adds a **More Like This** section to movie and series detail pages. Suggestions 
 
 #### 5. ***Add Script*** => Name it *jellyfin-tmdb-reco* or whatever
 
-#### 6.  Copy/Paste the full content of `jellyfin-more-like-this.js`
+#### 6.  Copy/Paste the full content of [`jellyfin-tmdb-more-like-this.js`](https://github.com/Damocles-fr/jellyfin-tmdb-more-like-this/releases/download/0.9/jellyfin-tmdb-more-like-this.js)
 
 #### 7. At the top of the script, in the clearly marked `CONFIGURATION` block, replace PASTE_YOUR_TMDB_API_KEY_HERE with your key, example :
 
@@ -87,6 +87,6 @@ Reference numbers measured on Jellyfin 10.11.11 (NAS over LAN, 3000 movies and 5
 - Items added to the library today appear after the background revalidation detects a count change, after the 24 h cache expiry, or after pressing Refresh in the panel (see Configuration to display it).
 
 ## Need Help?
-- Don't hesitate to open an [issue](https://github.com/Damocles-fr/jellyfin-more-like-this/issues)
+- Don't hesitate to open an [issue](https://github.com/Damocles-fr/jellyfin-tmdb-more-like-this/issues)
 - **DM me** https://forum.jellyfin.org/u-damocles
 - GitHub [**Damocles-fr**](https://github.com/Damocles-fr)
