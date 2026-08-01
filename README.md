@@ -45,7 +45,7 @@ Adds a **More Like This** section to movie and series detail pages. Suggestions 
 
 #### 5. ***Add Script*** => Name it *jellyfin-tmdb-reco* or whatever
 
-#### 6.  Copy/Paste the full content of [`jellyfin-tmdb-more-like-this.js`](https://github.com/Damocles-fr/jellyfin-tmdb-more-like-this/releases/download/0.9/jellyfin-tmdb-more-like-this.js)
+#### 6.  Copy/Paste the full content of [`jellyfin-tmdb-more-like-this.js`](https://github.com/Damocles-fr/jellyfin-tmdb-more-like-this/releases/download/1.0/jellyfin-tmdb-more-like-this.js)
 
 #### 7. At the top of the script, in the `CONFIGURATION` block, replace PASTE_YOUR_TMDB_API_KEY_HERE with your key, example :
 
