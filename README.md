@@ -4,7 +4,7 @@ Adds a **More Like This** section to movie and series detail pages. Suggestions 
 
 ## Features
 
-- Merges **TMDB recommendations, similar, and same-collection (sagas)**
+- Combines **TMDB recommendations, similar, and same-collection (sagas)**
 - Movies in a TMDB collection (saga) are placed first : next film, then previous film (configurable)
 - Dropdown menu, collapsed by default, nothing runs (no API call, no library scan) until the section is expanded
 - The row is inserted right below Cast & Crew (below the Scenes row when chapter images are shown)
