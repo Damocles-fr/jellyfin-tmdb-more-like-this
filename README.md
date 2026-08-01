@@ -18,7 +18,7 @@ Adds a **More Like This** section to movie and series detail pages. Suggestions 
 
 ## Requirements
 
-- Jellyfin 10.11.x (tested on 10.11.11, built on stable REST endpoints with 12.0 in mind)
+- Jellyfin 10.11.x (tested on 10.11.11, built on stable REST endpoints with JF 12.0 in mind, in case the built-in "More Like This" feature is still inaccurate)
 - [JavaScript Injector](https://github.com/n00bcodr/Jellyfin-JavaScript-Injector) plugin
 - A free TMDB API key (get a key by creating an account at https://www.themoviedb.org/settings/api)
 
