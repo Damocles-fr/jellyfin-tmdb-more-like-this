@@ -8,7 +8,7 @@ Adds a **More Like This** section to movie and series detail pages. Suggestions 
 - Movies in a TMDB collection (saga) are placed first : next film, then previous film (configurable)
 - Dropdown menu, collapsed by default, nothing runs (no API call, no library scan) until the section is expanded
 - The row is inserted right below Cast & Crew (below the Scenes row when chapter images are shown)
-- Runs **per user** with that user's library access rights
+- Runs per user with that user's library access rights
 - Compatible with custom themes & skins, uses Jellyfin's native poster layout
 - Compatible with other scripts and plugins, such as Kefintweaks and JellyFrame
 - Compatibility to use with my Jellyfin Episodes Ratings Grid script
