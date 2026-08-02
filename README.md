@@ -9,7 +9,7 @@ Adds a **More Like This** section to movie and series detail pages. Suggestions 
 - Dropdown menu, collapsed by default, nothing runs (no API call, no library scan) until the section is expanded
 - The row is inserted right below Cast & Crew (below the Scenes row when chapter images are shown)
 - Runs per user with that user's library access rights
-- Compatible with custom themes & skins, uses Jellyfin's native poster layout
+- Compatible with custom themes & skins, it uses Jellyfin's native poster layout
 - Compatible with other scripts and plugins, such as Kefintweaks and JellyFrame
 - Compatibility to use with my Jellyfin Episodes Ratings Grid script
 - **Option to hide Jellyfin's own built-in "More Like This" row** which is slow and inaccurate, hidden by default
@@ -30,7 +30,7 @@ Adds a **More Like This** section to movie and series detail pages. Suggestions 
 ## Transparency
 
 - Heavily LLM-assisted
-- Human involvement was required to optimize the process, despite JavaScript repeatedly trying to hurt the human.
+- Human involvement was required to optimize the process, despite JavaScript repeatedly trying to hurt the human
 
 ## Installation
 
@@ -52,7 +52,7 @@ Adds a **More Like This** section to movie and series detail pages. Suggestions 
    const TMDB_API_KEY = '123xx123xxx123x133xyz'
    ```
 
-#### 8. Save and reload the web UI. Open any movie or series detail page and expand the "More Like This" bar.
+#### 8. Save and reload the web UI. Open any movie or series detail page and expand the "More Like This" bar
 
 ###### Note : if the key is missing or left as the placeholder, the section displays an explicit message instead of failing silently.
 
@@ -82,13 +82,13 @@ The script is idle until the section is expanded. On activation it reads the cur
 
 ## Performance
 
-Reference numbers measured on Jellyfin 10.11.11 (NAS over LAN, 3000 movies and 500 series) : first index build takes about 1.2s for movies and 0.25s for series.
+Reference numbers measured on Jellyfin 10.11.11 (NAS over LAN, 3000 movies and 500 series) : first index build takes about 1.2s for movies and 0.25s for series
 
 ## Limitations
 
 - It won't display on Jellyfin apps that do not use the Jellyfin Web UI
 - Library items without a TMDB ID in their metadata cannot appear as suggestions (they are invisible to the ID matching)
-- Items added to the library today appear after the background revalidation detects a count change, after the 24 h cache expiry, or after pressing Refresh in the panel (see Configuration to display it).
+- Items added to the library today appear after the background revalidation detects a count change, after the 24 h cache expiry, or after pressing Refresh in the panel (see Configuration to display it)
 
 ## Need Help?
 - Don't hesitate to open an [issue](https://github.com/Damocles-fr/jellyfin-tmdb-more-like-this/issues)
