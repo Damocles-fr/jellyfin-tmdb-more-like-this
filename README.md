@@ -12,7 +12,7 @@ Adds a **More Like This** section to movie and series detail pages. Suggestions 
 - Compatible with custom themes & skins, it uses Jellyfin's native poster layout
 - Compatible with other scripts and plugins, such as Kefintweaks and JellyFrame
 - Compatibility to use with my Jellyfin Episodes Ratings Grid script
-- **Option to hide Jellyfin's own built-in "More Like This" row** which is slow and inaccurate, hidden by default
+- **Option to hide Jellyfin's own built-in "More Like This" row** which is inaccurate most of the time, hidden by default
 - **Fully configurable** (saga behavior, number of results, cache lifetimes, UI language, etc.)
 
 ## Screenshots
