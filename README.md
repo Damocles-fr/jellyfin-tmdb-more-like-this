@@ -15,6 +15,11 @@ Adds a **More Like This** section to movie and series detail pages. Suggestions 
 - **Option to hide Jellyfin's own built-in "More Like This" row** which is slow and inaccurate, hidden by default
 - **Fully configurable** (saga behavior, number of results, cache lifetimes, UI language, etc.)
 
+## Screenshots
+
+<p align="center">
+  <img src="./assets/jellyfin-more-like-this.webp" alt="Android view" width="900"><br>
+</p>
 
 ## Requirements
 
@@ -26,12 +31,6 @@ Adds a **More Like This** section to movie and series detail pages. Suggestions 
 
 - Heavily LLM-assisted
 - Human involvement was required to optimize the process, despite JavaScript repeatedly trying to hurt the human.
-
-## Screenshots
-
-<p align="center">
-  <img src="./assets/jellyfin-more-like-this.webp" alt="Android view" width="900"><br>
-</p>
 
 ## Installation
 
