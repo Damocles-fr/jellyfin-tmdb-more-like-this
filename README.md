@@ -73,8 +73,8 @@ All options sit in the `SETTINGS` object at the top of the script.
 | `indexTtlHours` | `24` | 1-168. Lifetime of the local library index (localStorage) |
 | `tmdbCacheHours` | `24` | 1-168. Lifetime of cached TMDB responses (sessionStorage) |
 | `pageSize` | `1500` | 200-5000. Items per request while building the library index |
-| `sectionTitle` | `More Like This` | Section title shown in the UI, override for localization or whatever. I was also considering “You May Also Like” or simply “Similar”
-| `strings` | see script | All UI text, override for localization |
+| `sectionTitle` | `More Like This` | Section title shown in the UI, override for localization. E.g. “You May Also Like”. ⚠️ Some special characters may not be supported |
+| `strings` | see script | All UI text, override for localization. ⚠️ Some special characters may not be supported |
 
 ## Technical
 
