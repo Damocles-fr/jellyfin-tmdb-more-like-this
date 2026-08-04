@@ -105,7 +105,7 @@
   const TMDBTTL = clamp(SETTINGS.tmdbCacheHours, 1, 168, 24) * 3600000;
   const PAGE = clamp(SETTINGS.pageSize, 200, 5000, 1500);
 
-  const CFG = { styleId: 'jf-tr-style-v2', root: '[data-jf-tr-root="1"]', watchDogMs: 800, maxWaitMs: 12000, readyAnchorWaitMs: 2200, reapplyDelayMs: 250 };
+  const CFG = { styleId: 'jf-tr-style-v2', root: '[data-jf-tr-root="1"]', watchDogMs: 800, maxWaitMs: 12000, readyAnchorWaitMs: 2200, reapplyDelayMs: 250, activeMs: 20000, moThrottleMs: 150 };
   let scheduled = null, burst = [], runSeq = 0, lastItemId = '';
 
   const sleep = ms => new Promise(r => setTimeout(r, ms));
@@ -601,25 +601,44 @@ ${SETTINGS.hideNativeSimilar ? '#similarCollapsible{display:none !important}' : 
     ensureMounted(itemId, sid, target);
   }
 
-  window.addEventListener('hashchange', () => scheduleRun(0), true);
-  window.addEventListener('popstate', () => scheduleRun(0), true);
-  document.addEventListener('viewshow', () => scheduleRun(0), true);
-  document.addEventListener('viewbeforeshow', () => scheduleRun(0), true);
+  let wdTimer = null, wdDeadline = 0, moTimer = null, moArmed = false;
 
-  if (document.body) new MutationObserver(() => {
-    if (!isDetails()) return;
-    const id = itemIdFromUrl() || ''; if (!id) return;
+  const healthCheck = () => {
+    const id = itemIdFromUrl(); if (!id) return;
+    if (id !== lastItemId) { lastItemId = id; wdDeadline = Date.now() + CFG.activeMs; scheduleBurst([0, 350, 900]); return; }
     const b = currentBlock(id);
     if (!b || !b.isConnected || !visible(b) || !wellPlaced(b)) scheduleRun(CFG.reapplyDelayMs);
-  }).observe(document.body, { childList: true, subtree: true });
+  };
 
-  setInterval(() => {
-    if (!isDetails()) return;
-    const id = itemIdFromUrl() || '';
-    const b = id ? currentBlock(id) : null;
-    if (id && id !== lastItemId) { lastItemId = id; scheduleBurst([0, 350, 900]); return; }
-    if (id && (!b || !b.isConnected || !visible(b) || !wellPlaced(b))) scheduleRun(CFG.reapplyDelayMs);
-  }, CFG.watchDogMs);
+  const mo = new MutationObserver(() => {
+    if (moTimer) return;
+    moTimer = setTimeout(() => { moTimer = null; if (isDetails()) healthCheck(); }, CFG.moThrottleMs);
+  });
 
-  scheduleRun(0);
+  function disarm() {
+    if (wdTimer) { clearInterval(wdTimer); wdTimer = null; }
+    if (moArmed) { mo.disconnect(); moArmed = false; }
+    if (moTimer) { clearTimeout(moTimer); moTimer = null; }
+  }
+
+  function arm() {
+    wdDeadline = Date.now() + CFG.activeMs;
+    if (!wdTimer) wdTimer = setInterval(() => {
+      if (!isDetails() || Date.now() > wdDeadline) { disarm(); return; }
+      healthCheck();
+    }, CFG.watchDogMs);
+    if (!moArmed && document.body) { mo.observe(document.body, { childList: true, subtree: true }); moArmed = true; }
+  }
+
+  function onNav() {
+    if (isDetails()) { arm(); scheduleBurst([0, 350, 900]); }
+    else { disarm(); scheduleRun(0); }
+  }
+
+  window.addEventListener('hashchange', onNav, true);
+  window.addEventListener('popstate', onNav, true);
+  document.addEventListener('viewshow', onNav, true);
+  document.addEventListener('viewbeforeshow', onNav, true);
+
+  onNav();
 })();
