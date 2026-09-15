@@ -1,6 +1,8 @@
 # Jellyfin More Like This (TMDB) 🎬🔗📚
-
 Adds a **More Like This** section to movie and series detail pages. Suggestions come from TMDB (merge `recommendations`, `similar`, and `collections`) and are filtered so that **only titles already present in your Jellyfin library** are shown.
+
+## Jellyfin 12.0 and above :
+### I find this script less effective than the new Jellyfin 12’s native “More Like This” section, but it still provides more suggestions and it puts the previous and next movies from the same saga first, in the correct order. (configurable). Feel free to use it as a starting point for further improvements or other projects.
 
 ## Features
 
