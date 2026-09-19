@@ -1,23 +1,26 @@
 # Jellyfin More Like This (TMDB) 🎬🔗📚
-Adds a **More Like This** section to movie and series detail pages. Suggestions come from TMDB (merge `recommendations`, `similar`, and `collections`) and are filtered so that **only titles already present in your Jellyfin library** are shown.
+Adds a **Watch Next** section to movie and series detail pages. Suggestions come from TMDB (merge `recommendations`, `similar`, and `collections`) and are filtered so that **only titles already present in your Jellyfin library** are shown.
 
 ## Jellyfin 12.0 and above :
-### I find this script less effective than the new Jellyfin 12’s native “More Like This” section, but it still provides more suggestions and it puts the previous and next movies from the same saga first, in the correct order. (configurable). Feel free to use it as a starting point for further improvements or other projects.
+### Rebuilt for Jellyfin 12.
+- The new native “More Like This” section is great, so this script now adds a “Watch Next” row that complements it : up to 28 new suggestions
+- The previous and next movies from the same saga first, in the correct order (configurable), and none of the titles already shown in the native row (filtered).
+- Same rows, cards and buttons as Jellyfin 12. Feel free to use it as a starting point for further improvements or other projects.
 
 ## Features
 
 - Combines **TMDB recommendations, similar, and same-collection (sagas)**
 - Movies in a TMDB collection (saga) are placed first : next film, then previous film (configurable)
+- **Titles already shown in Jellyfin's native "More Like This" row are skipped**, saga films always stay
+- **Same row, cards and buttons as Jellyfin 12**
 - Dropdown menu, collapsed by default, nothing runs (no API call, no library scan) until the section is expanded
-- The row is inserted right below Cast & Crew (below the Scenes row when chapter images are shown)
 - Runs per user with that user's library access rights
-- Compatible with custom themes & skins, it uses Jellyfin's native poster layout
+- Compatible with custom themes & skins, including ElegantFin and its Jellyfin 12 [Modern layout fix](https://github.com/mihaif7/elegantfin-jf12)
 - Compatible with other scripts and plugins, such as Kefintweaks and JellyFrame
 - Compatibility to use with my Jellyfin Episodes Ratings Grid script
-- **Option to hide Jellyfin's own built-in "More Like This" row** which is inaccurate most of the time, hidden by default
 - **Fully configurable** (saga behavior, number of results, cache lifetimes, UI language, etc.)
 
-## Screenshots
+## Screenshots (older JF 11 version)
 
 <p align="center">
   <img src="./assets/jellyfin-more-like-this.webp" alt="Android view" width="900"><br>
@@ -25,7 +28,7 @@ Adds a **More Like This** section to movie and series detail pages. Suggestions 
 
 ## Requirements
 
-- Jellyfin 10.11.x (tested on 10.11.11, built on stable REST endpoints with JF 12.0 in mind, in case the built-in "More Like This" feature is still inaccurate)
+- Jellyfin 12.0 and above
 - [JavaScript Injector](https://github.com/n00bcodr/Jellyfin-JavaScript-Injector) plugin
 - A free TMDB API key (get a key by creating an account at https://www.themoviedb.org/settings/api)
 
@@ -46,15 +49,15 @@ Adds a **More Like This** section to movie and series detail pages. Suggestions 
 
 #### 5. ***Add Script*** => Name it *jellyfin-tmdb-reco* or whatever
 
-#### 6.  Copy/Paste the full content of [`jellyfin-tmdb-more-like-this.js`](https://github.com/Damocles-fr/jellyfin-tmdb-more-like-this/releases/download/1.1/jellyfin-tmdb-more-like-this.js)
+#### 6.  Copy/Paste the full content of [`jellyfin-tmdb-more-like-this.js`](https://github.com/Damocles-fr/jellyfin-tmdb-more-like-this/releases/latest/download/jellyfin-tmdb-more-like-this.js)
 
 #### 7. At the top of the script, in the `CONFIGURATION` block, replace PASTE_YOUR_TMDB_API_KEY_HERE with your key, example :
 
-   ```js
+```js
    const TMDB_API_KEY = '123xx123xxx123x133xyz'
-   ```
+```
 
-#### 8. Save and reload the web UI. Open any movie or series detail page and expand the "More Like This" bar
+#### 8. Save and reload the web UI. Open any movie or series detail page and expand the "Watch Next" bar
 
 ###### Note : if the key is missing or left as the placeholder, the section displays an explicit message instead of failing silently.
 
@@ -66,31 +69,31 @@ All options sit in the `SETTINGS` object at the top of the script.
 
 | Option | Default | Description |
 | --- | --- | --- |
-| `maxResults` | `20` | 1-40. Maximum number of cards displayed (if available in your library) |
-| `maxTmdbPages` | `3` | 1-5. Maximum TMDB recommendation pages fetched when fewer matches are found |
+| `maxResults` | `40` | 1-40. Maximum number of cards displayed (if available in your library) |
+| `maxTmdbPages` | `5` | 1-5. Maximum TMDB recommendation pages fetched when fewer matches are found |
 | `collectionsFirst` | `true` | Movies only. Place available films from the same TMDB collection (saga) at the head of the row |
 | `collectionMax` | `2` | 1-20. Maximum collection films placed first. Order spirals outward from the current movie: next, previous, next+1, previous-1 |
-| `showRefresh` | `false` | Show a refresh icon in the open panel to clear caches and reload |
-| `hideNativeSimilar` | `true` | Hide Jellyfin's own built-in "More Like This" row (#similarCollapsible) at the page bottom |
-| `indexTtlHours` | `24` | 1-168. Lifetime of the local library index (localStorage) |
-| `tmdbCacheHours` | `24` | 1-168. Lifetime of cached TMDB responses (sessionStorage) |
+| `showRefresh` | `false` | Show a refresh icon next to the title when the section is open, to clear caches and reload |
+| `hideNativeSimilar` | `false` | Hide Jellyfin's own built-in "More Like This" row. When it stays visible, the titles it already shows are removed from the Watch Next row (saga films always stay) |
+| `indexTtlHours` | `84` | 1-168. Lifetime of the local library index (localStorage) |
+| `tmdbCacheHours` | `84` | 1-168. Lifetime of cached TMDB responses (sessionStorage) |
 | `pageSize` | `1500` | 200-5000. Items per request while building the library index |
-| `sectionTitle` | `More Like This` | Section title shown in the UI, override for localization. E.g. “You May Also Like”. ⚠️ Some special characters may not be supported |
+| `sectionTitle` | `Watch Next` | Section title shown in the UI, override for localization. E.g. “You May Also Like”. ⚠️ Some special characters may not be supported |
 | `strings` | see script | All UI text, override for localization. ⚠️ Some special characters may not be supported |
 
 ## Technical
 
-The script is idle until the section is expanded. On activation it reads the current item's TMDB ID from Jellyfin `ProviderIds` (with a TMDB `/find` fallback through IMDb or TVDb when missing), then makes a single TMDB request using `append_to_response=recommendations,similar`. For movies that belong to a TMDB collection, the collection identity comes back for free in that same response, and one additional cached request to the collection endpoint fetches the saga's films so the available ones can be placed first (the current film is excluded, and duplicates against the regular suggestions are removed). Availability is resolved against a small local index of the library: paginated `/Items` requests limited to `Fields=ProviderIds` (images and user data disabled, episodes never fetched) build a `TMDB ID -> Jellyfin ID` map per media type, stored in localStorage for 24 hours, per server and per user. On later activations a one-row `TotalRecordCount` check revalidates the index in the background and rebuilds it silently if the library changed. Jellyfin IDs that no longer resolve are purged automatically. Matched candidates are fetched in one batched `/Items?ids=` request and rendered with Jellyfin's native card markup, so themes and hover scripts treat them like built-in cards. Because matching uses TMDB IDs exclusively, results are independent of the metadata language configured in Jellyfin.
+The script is idle until the section is expanded. On activation it reads the current item's TMDB ID from Jellyfin `ProviderIds` (with a TMDB `/find` fallback through IMDb or TVDb when missing), then makes a single TMDB request using `append_to_response=recommendations,similar`. For movies that belong to a TMDB collection, the collection identity comes back for free in that same response, and one additional cached request to the collection endpoint fetches the saga's films so the available ones can be placed first (the current film is excluded, and duplicates against the regular suggestions are removed). Availability is resolved against a small local index of the library: paginated `/Items` requests limited to `Fields=ProviderIds` (images and user data disabled, episodes never fetched) build a `TMDB ID -> Jellyfin ID` map per media type, stored in localStorage per server and per user, and kept in memory. A one-row `TotalRecordCount` check, at most every 10 minutes, rebuilds it silently if the library changed, and Jellyfin IDs that no longer resolve are purged automatically. TMDB responses are cached as IDs only. The index build, the TMDB request and the reading of the native "More Like This" row run in parallel. Titles already shown in that native row are read from the page (no request) and skipped, saga films excepted. Matched items are fetched with batched `/Items?ids=` requests and rendered with Jellyfin's own markup (`emby-scroller`, `emby-itemscontainer`, native cards and overlay buttons), so Jellyfin itself handles scrolling, clicks, the context menu, the played and favorite buttons and live user data updates, and posters are lazy loaded like in native rows. There are no timers and no DOM observers: the section is inserted once, when Jellyfin shows a detail page (`viewshow` event). Requests use the `MediaBrowser` authorization header required by Jellyfin 12. Because matching uses TMDB IDs exclusively, results are independent of the metadata language configured in Jellyfin.
 
 ## Performance
 
-Reference numbers measured on Jellyfin 10.11.11 (NAS over LAN, 3000 movies and 500 series) : first index build takes about 1.2s for movies and 0.25s for series
+Reference numbers measured on a NAS over LAN (JF 11, 3000 movies and 500 series) : first index build takes about 1.2s for movies and 0.25s for series. Later openings reuse the cached index, with one TMDB request and the Jellyfin request for the displayed cards
 
 ## Limitations
 
 - It won't display on Jellyfin apps that do not use the Jellyfin Web UI
 - Library items without a TMDB ID in their metadata cannot appear as suggestions (they are invisible to the ID matching)
-- Items added to the library today appear after the background revalidation detects a count change, after the 24 h cache expiry, or after pressing Refresh in the panel (see Configuration to display it)
+- Items added to the library today appear after the library count check detects a change (at most every 10 minutes), after the index cache expiry, or after pressing Refresh (see Configuration to display it)
 
 ## Need Help?
 - Don't hesitate to open an [issue](https://github.com/Damocles-fr/jellyfin-tmdb-more-like-this/issues)
