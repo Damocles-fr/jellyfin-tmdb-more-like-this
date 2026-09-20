@@ -1,5 +1,6 @@
 # Jellyfin Watch Next : Extra More More Like This 🎬🔗📚
-Adds a **Watch Next** section to movie and series detail pages. Suggestions come from TMDB (merge `recommendations`, `similar`, and `collections`) and are filtered so that **only titles already present in your Jellyfin library** are shown.
+Extra "Watch Next" rows to movie and series pages, **up to 28 new suggestions**, excluding titles already present in the native "More like this" row.
+Combines TMDB recommendations, similar, and same-collection (sagas), configurable.
 
 ## Jellyfin 12.0 and above :
 ### Rebuilt for Jellyfin 12.
