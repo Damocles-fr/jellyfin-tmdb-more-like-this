@@ -1,10 +1,10 @@
 # Jellyfin Watch Next : Extra More More Like This 🎬🔗📚
-Extra "Watch Next" rows to movie and series pages, **up to 28 new suggestions**, excluding titles already present in the native "More like this" row.
+Extra "Watch Next" rows to movie and series pages, **up to 32 new suggestions**, excluding titles already present in the native "More like this" row.
 Combines TMDB recommendations, similar, and same-collection (sagas), configurable.
 
 ## Jellyfin 12.0 and above :
 ### Rebuilt for Jellyfin 12.
-- The new native “More Like This” section is great, so this script now adds a “Watch Next” row that complements it : up to 28 new suggestions
+- The new native “More Like This” section is great, so this script now adds a “Watch Next” row that complements it : up to 32 new suggestions
 - The previous and next movies from the same saga first, in the correct order (configurable), and none of the titles already shown in the native row (filtered).
 - Same rows, cards and buttons as Jellyfin 12. Feel free to use it as a starting point for further improvements or other projects.
 
