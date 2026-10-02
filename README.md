@@ -1,4 +1,4 @@
-# Jellyfin Watch Next : Extra More More Like This 🎬🔗📚
+# Jellyfin Watch Next : More Like This ++ 🎬🔗📚
 Extra "Watch Next" rows to movie and series pages, **up to 32 new suggestions**, excluding titles already present in the native "More like this" row.
 Combines TMDB recommendations, similar, and same-collection (sagas), configurable.
 
