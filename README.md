@@ -21,10 +21,10 @@ Combines TMDB recommendations, similar, and same-collection (sagas), configurabl
 - Compatibility to use with my Jellyfin Episodes Ratings Grid script
 - **Fully configurable** (saga behavior, number of results, cache lifetimes, UI language, etc.)
 
-## Screenshots (older JF 11 version)
+## Screenshots
 
 <p align="center">
-  <img src="./assets/jellyfin-more-like-this.webp" alt="Android view" width="900"><br>
+  <img src="./assets/jellyfin-tmdb-more-like-this.webp" alt="Android view" width="900"><br>
 </p>
 
 ## Requirements
