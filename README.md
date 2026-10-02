@@ -50,7 +50,7 @@ Combines TMDB recommendations, similar, and same-collection (sagas), configurabl
 
 #### 5. ***Add Script*** => Name it *jellyfin-tmdb-reco* or whatever
 
-#### 6.  Copy/Paste the full content of [`jellyfin-tmdb-more-like-this.js`](https://github.com/Damocles-fr/jellyfin-tmdb-more-like-this/releases/latest/download/jellyfin-tmdb-more-like-this.js)
+#### 6.  Copy/Paste the full content of [Jellyfin-12-WatchNext-more-like-this-tmdb.js](https://github.com/Damocles-fr/jellyfin-tmdb-more-like-this/releases/download/12.2/Jellyfin-12-WatchNext-more-like-this-tmdb.js)
 
 #### 7. At the top of the script, in the `CONFIGURATION` block, replace PASTE_YOUR_TMDB_API_KEY_HERE with your key, example :
 
