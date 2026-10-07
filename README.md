@@ -5,8 +5,8 @@ Combines TMDB recommendations, similar, and same-collection (sagas), configurabl
 ## Jellyfin 12.0 and above :
 ### Rebuilt for Jellyfin 12.
 - The new native “More Like This” section is great, so this script now adds a “Watch Next” row that complements it : up to 32 new suggestions
-- The previous and next movies from the same saga first, in the correct order (configurable), and none of the titles already shown in the native row (filtered).
-- Same rows, cards and buttons as Jellyfin 12. Feel free to use it as a starting point for further improvements or other projects.
+- The next and previous movies from the same saga first (configurable), and none of the titles already shown in the native row (filtered).
+- Same rows, cards and buttons as Jellyfin 12.
 
 ## Features
 
