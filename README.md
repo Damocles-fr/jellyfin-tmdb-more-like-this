@@ -17,8 +17,7 @@ Combines TMDB recommendations, similar, and same-collection (sagas), configurabl
 - Dropdown menu, collapsed by default, nothing runs (no API call, no library scan) until the section is expanded
 - Runs per user with that user's library access rights
 - Compatible with custom themes & skins, including ElegantFin and its Jellyfin 12 [Modern layout fix](https://github.com/mihaif7/elegantfin-jf12)
-- Compatible with other scripts and plugins, such as Kefintweaks and JellyFrame
-- Compatibility to use with my Jellyfin Episodes Ratings Grid script
+- Compatible with other scripts and plugins, such as [Hover Peek](https://github.com/Damocles-fr/jellyfin-hover-peek), Kefintweaks, [Episodes Ratings Grid](https://github.com/Damocles-fr/jellyfin-imdb-episodes-heatmap-ratings-grid), JellyFrame, etc.
 - **Fully configurable** (saga behavior, number of results, cache lifetimes, UI language, etc.)
 
 ## Screenshots
